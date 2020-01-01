@@ -13,7 +13,7 @@ QT_BEGIN_NAMESPACE
 extern void qt_blurImage(QPainter *p, QImage &blurImage, qreal radius, bool quality, bool alphaOnly, int transposed = 0);
 QT_END_NAMESPACE
 
-#define BLUR_RADIUS 100
+#define BLUR_RADIUS 100 //模糊半径，越大图像越模糊
 
 /*!
  * \brief main
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.setGeometry(QApplication::primaryScreen()->availableGeometry());
-    auto pixmap = QApplication::primaryScreen()->grabWindow(0, w.x(), w.y(), w.width(), w.height());
+    auto pixmap = QApplication::primaryScreen()->grabWindow(0, w.x(), w.y(), w.width(), w.height()); //若第一个参数为0，则截取对象为当前屏幕
     pixmap.save("test.png");
     QPixmap target(pixmap.size());
     QPainter painter(&target);
